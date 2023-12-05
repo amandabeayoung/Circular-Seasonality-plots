@@ -1,9 +1,7 @@
 # Circular-Seasonality-plots
 Code for creating a circular plot showing off how climate variables vary throughout the season. 
 
-![ ](images/Toolik_climate.jpg){width=50%}
-![alt text](https://github.com/amandabeayoung/Circular-Seasonality-plots/images/Toolik_climate.jpg)
-
+![Toolik_climate](https://github.com/amandabeayoung/Circular-Seasonality-plots/assets/21092249/00fdfb68-aa80-4800-8d7d-30cd6e7f90d5)
 
 ### Four data sets are used in creating these circular plots
 * hourly - Radiation (hours of daylight)
