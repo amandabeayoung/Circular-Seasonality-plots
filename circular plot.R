@@ -10,7 +10,7 @@ library(ggnewscale) # used to assign new colour pallete to each dataset
 #library(geomtextpath)
 #library(cowplot)
 
-threehour_data<-read.csv("C:/Users/Amanda B. Young/Documents/R/Circular-Seasonality-plots/data/3-hour_data.csv")
+threehour_data<-read.csv("data/3-hour_data.csv")
 
 #Daily average lake temperature
 lake_temp<-threehour_data %>% 
@@ -25,7 +25,7 @@ lake_temp<-threehour_data %>%
 
 
 ### Import Daily air temperature data
-daily_data<-read.csv("C:/Users/Amanda B. Young/Documents/R/Circular-Seasonality-plots/data/24-hour_data.csv")
+daily_data<-read.csv("data/24-hour_data.csv")
 
 ### Daily average air temp
 airTavg<-daily_data %>% 
@@ -41,7 +41,7 @@ airTavg<-daily_data %>%
 
 
 ## Import Hourly data
-hourly_data<-read.csv("C:/Users/Amanda B. Young/Documents/R/Circular-Seasonality-plots/data/1-hour_data.csv")
+hourly_data<-read.csv("data/1-hour_data.csv")
 
 ## Filter Pyrometer data down to the values greater than 0.015
 Pyrometer<-hourly_data %>%   mutate(date2 = as.Date(date),
@@ -68,7 +68,7 @@ daily_rain<-hourly_all %>%
   filter(!is.na(rain1))
 
 ##Read in all naturalist Journal data
-nj_data<-read.csv("C:/Users/Amanda B. Young/Documents/R/Circular-Seasonality-plots/data/NJ_clim.csv")
+nj_data<-read.csv("data/NJ_clim.csv")
 
 
 ## filter Naturalist journal to relevent units
