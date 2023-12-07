@@ -1,7 +1,8 @@
 # Circular-Seasonality-plots
-Code for creating a circular plot showing off how climate variables vary throughout the season. 
+Code for creating a circular plot showing off how climate variables vary throughout the season at Toolik Field Station. 
 
 
+![Toolik_climate_20231207](https://github.com/amandabeayoung/Circular-Seasonality-plots/assets/21092249/48eafd31-9f47-4f89-862d-170cbbc59877)
 
 
 
