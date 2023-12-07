@@ -7,8 +7,9 @@ library(lubridate)
 #library(ggiraph)
 library(viridis)
 library(ggnewscale) # used to assign new colour pallete to each dataset
-#library(geomtextpath)
+library(geomtextpath)
 #library(cowplot)
+library(patchwork)
 
 threehour_data<-read.csv("data/3-hour_data.csv")
 
@@ -132,11 +133,13 @@ p2<-p+coord_curvedpolar(clip = "on")+
 
 p2
 
-ggplot()+
+p3<-ggplot()+
   scale_x_continuous(limits=c(0,100))+
   scale_y_continuous(limits=c(0,100))+
   annotate("segment", x=15, xend=30, y=15, yend=30, colour="blue")+
   theme(axis.text = element_blank(),
+        axis.ticks = element_blank(),
+        axis.title = element_blank(),
         #panel.grid.minor.x = element_blank(),
         #panel.grid.major.x = element_blank(),
         #panel.grid.minor.y = element_blank(),
@@ -150,3 +153,6 @@ ggplot()+
         legend.background = element_rect(fill='transparent'), #transparent legend bg
         legend.box.background = element_rect(fill='transparent') #transparent legend panel
   )
+
+p2+inset_element(p3)
+p2 + inset_element(p3, left = 0, bottom = 0, right = 1, top = 1)
