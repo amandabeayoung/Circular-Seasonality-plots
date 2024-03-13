@@ -45,9 +45,10 @@ airTavg<-daily_data %>%
 hourly_data<-read.csv("data/1-hour_data.csv")
 
 ## Filter Pyrometer data down to the values greater than 0.015
-Pyrometer<-hourly_data %>%   mutate(date2 = as.Date(date),
-                             doy = yday(date)) %>% 
-  separate( date, c("Year", "Month", "Day"), sep="-") %>%
+Pyrometer<-hourly_data %>%  
+  mutate(date2 = as.Date(date, format = "%m/%d/%Y"),
+                         doy = yday(date2)) %>% 
+  separate( date2, c("Year", "Month", "Day"), sep="-") %>%
   filter(Year >2007) %>% 
   mutate(prya2 = if_else(pyranometer > 0.015,1,0)) %>% 
   group_by(Year,doy) %>% 
@@ -55,9 +56,9 @@ Pyrometer<-hourly_data %>%   mutate(date2 = as.Date(date),
   group_by(doy) %>% 
   summarise(pyra4 = max(pyra3))
 
-hourly_all<-hourly_data %>%   mutate(date2 = as.Date(date),
-                             doy = yday(date)) %>% 
-  separate( date, c("Year", "Month", "Day"), sep="-") %>%
+hourly_all<-hourly_data %>%   mutate(date2 = as.Date(date, format = "%m/%d/%Y"),
+                             doy = yday(date2)) %>% 
+  separate( date2, c("Year", "Month", "Day"), sep="-") %>%
   group_by(Year, doy) %>% 
   filter(Year>2006) %>% 
   summarise(rain2_2 = sum(rain2)) %>% 
@@ -96,7 +97,7 @@ p<-ggplot() +
   geom_point(data = nj, aes(x=doy, y=42, colour = aurora), size =4, alpha=0.5, show.legend = FALSE)+
   scale_color_manual(values = c('NA', "green", 'NA'))+
   new_scale_color()+
-  geom_point(data = nj, aes(x=doy, y=35, colour = cloud1), size = 4, alpha = 0.5, show.legend = FALSE)+
+  geom_point(data = nj, aes(x=doy, y=35, colour = cloud1), size = 4, alpha = 0.1, show.legend = FALSE)+
   scale_color_manual(values = c('NA', "light grey"))+
   new_scale_color()+
   geom_point(data=nj, aes(x=doy, y=25, colour = snow2),pch=16, show.legend = FALSE)+
@@ -117,7 +118,7 @@ p<-ggplot() +
     minor_breaks = c(30,60,91,121,152,182,213,243,274,304,335,366), limits = c(0,366),labels = c("January", "February", "March", "April", "May","June","July", "August", "September", "October", "November", "December"))+
   scale_y_continuous(limits = c(-50, 50), breaks = c(-40,-20, 0, 20,50), minor_breaks = c(-40,-20, 0, 20)) +
   theme_bw()+
-  ggtitle("Through the year at Toolik", subtitle = "Data from the TFS Met Station and Naturalist Journal (2007-2022)")+
+  ggtitle("Through the year at Toolik", subtitle = "Data from the TFS Met Station and Naturalist Journal (2007-2023)")+
   labs(fill="Hours of Daylight")+
   theme(axis.text.x = element_text(size = 14),
         axis.text.y = element_blank(),
