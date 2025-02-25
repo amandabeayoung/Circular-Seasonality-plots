@@ -180,7 +180,7 @@ p3<-ggplot()+
 
 
 p2 + inset_element(p3, left = 0, bottom = 0, right = 1, top = 1)+
-  labs(caption = "Amanda B. Young, 2023", fontface = "italic")+
+  labs(caption = "Amanda B. Young, 2024", fontface = "italic")+
   theme(plot.caption = element_text(face="italic"))
   
 
