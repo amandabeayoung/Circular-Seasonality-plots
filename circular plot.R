@@ -98,7 +98,7 @@ p<-ggplot() +
   scale_color_manual(values = c('NA', "green", 'NA'))+
   new_scale_color()+
   geom_point(data = nj, aes(x=doy, y=35, colour = cloud1), size = 4, alpha = 0.1, show.legend = FALSE)+
-  scale_color_manual(values = c('NA', "light grey"))+
+  scale_color_manual(values = c('NA', "grey"))+
   new_scale_color()+
   geom_point(data=nj, aes(x=doy, y=25, colour = snow2),pch=16, show.legend = FALSE)+
   scale_color_manual(values = c('NA', "darkslategray3"))+
